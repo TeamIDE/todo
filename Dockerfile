@@ -13,9 +13,10 @@ ADD . /opt/webapp/
 WORKDIR /opt/webapp
 
 # Run the image as a non-root user
-RUN adduser -D jmankhan
-USER jmankhan
+RUN adduser -D $(USERNAME)
+USER $(USERNAME)
 
-# Run the app.  CMD is required to run on Heroku
+# Run the app.  
+# CMD is required to run on Heroku. 
 # $PORT is set by Heroku			
 CMD gunicorn --bind 0.0.0.0:$PORT wsgi 
