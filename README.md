@@ -16,7 +16,7 @@ Each one these features will be its own microservice, with its own tests. Most f
 
 ## Technologies
 * Backend - Python (Flask)
-* Frontend - TBD (currently vanilla)
+* Frontend - React
 * Database - MongoDB
 * Container - Docker
 * Hosting - Heroku
