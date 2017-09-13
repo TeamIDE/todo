@@ -5,8 +5,8 @@
 Feature list
 
  * ~~Insert and retrieve items~~
- * Client side filtering of items by date
- * Server side filtering of items by date
+ * ~~Client side filtering of items by date~~
+ * Server side filtering of items by name
  * Login and accounts
  * OAuth flow
  * Permission sets
