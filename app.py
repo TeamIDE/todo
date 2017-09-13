@@ -24,6 +24,16 @@ def new():
 
     return redirect(url_for('todo'))
 
+@app.route('/filter', methods=['POST'])
+def filter():
+    item_filter = {'filter': request.form['filter']}
+    # Filter items by the selected text
+    filtered_items = db.todos.aggregate([
+        { "$match": { name: item_filter } }
+    ])
+
+    return render_template('index.html', items=filtered_items)
+
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True)
