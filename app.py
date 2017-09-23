@@ -26,10 +26,10 @@ def new():
 
 @app.route('/filter', methods=['POST'])
 def filter():
-    item_filter = {'filter': request.form['filter']}
+    item_filter = request.form['filter']
     # Filter items by the selected text
     filtered_items = db.todos.aggregate([
-        { "$match": { name: item_filter } }
+        { "$match": { 'name': item_filter } }
     ])
 
     return render_template('index.html', items=filtered_items)
