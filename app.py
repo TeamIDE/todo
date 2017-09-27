@@ -1,8 +1,9 @@
 import os
-from flask import Flask, redirect, url_for, request, render_template
+from flask import Flask, redirect, url_for, request, render_template, jsonify
 from pymongo import MongoClient
 import pdb
 from flask_cors import CORS, cross_origin
+from bson.json_util import loads, dumps
 
 app = Flask(__name__)
 CORS(app)
@@ -17,8 +18,8 @@ def todo():
     """ Retrieves the todo lists items """
     _items = db.todos.find()
     items = [item for item in _items]
-    # Render default page template
-    return render_template('index.html', items=items)
+
+    return dumps(items)
 
 
 @app.route('/new', methods=['POST'])
