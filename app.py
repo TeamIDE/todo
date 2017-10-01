@@ -22,7 +22,7 @@ def todo():
     return dumps(items)
 
 
-@app.route('/new', methods=['POST'])
+@app.route('/', methods=['POST'])
 def new():
     """ Saves a new item to the todo list """
     request_json = request.get_json()
