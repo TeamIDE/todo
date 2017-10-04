@@ -33,16 +33,14 @@ def new():
     return redirect(url_for('todo'))
 
 
-@app.route('/filter', methods=['POST'])
+@app.route('/filter', methods=['GET'])
 def filter_items():
     """ filters the todo list by inputted text. """
-    item_filter = request.form['filter']
+    item_filter = request.args.get('name')
     # Filter items by the selected text
-    filtered_items = db.todos.aggregate([
-        { "$match": { 'name': item_filter } }
-    ])
+    filtered_items = db.todos.find({ 'name': item_filter })
 
-    return render_template('index.html', items=filtered_items)
+    return dumps(filtered_items)
 
 
 if __name__ == "__main__":
