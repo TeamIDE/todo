@@ -32,7 +32,7 @@ grpc-google-pubsub-v1==0.8.1
 grpcio==1.6.3
 gunicorn==19.7.1
 gyp==0.1
-httplib2==0.10.3
+httplib2==0.18.0
 idna==2.6
 imagesize==0.7.1
 ipaddress==1.0.18
